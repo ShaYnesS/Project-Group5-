@@ -104,8 +104,12 @@ public class TextEditor extends AppCompatActivity {
 
         /*Befüllen der Dateienliste, die alle Dateien des Ordners beinhalten soll*/
 
-        File ordner = new File(Environment.getExternalStorageDirectory() + "Notizdateien");
+        // TODO: Order musste erst erstellt werden, das gleiche musst du auch machen wenn du etwas abspeichern willst
+        new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notizdateien").mkdirs();
+
+        File ordner = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Notizdateien");
         fileList.addAll(Arrays.asList(ordner.listFiles()));             //Listet alle Files in der Liste
+
 
         Collections.sort(fileList);         //Sortieren nach alphabetischer Reihenfolge und Zahlen aufsteigend
 
